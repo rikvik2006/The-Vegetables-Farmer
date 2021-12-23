@@ -1,0 +1,22 @@
+{
+  "name": "the-vegetables-farmer",
+  "version": "1.0.0",
+  "description": "The Vegetables Farmer is the bot of the discord server The vegetables cave",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rikvik2006/The-Vegetables-Farmer.git"
+  },
+  "author": "The Vegetables SRL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rikvik2006/The-Vegetables-Farmer/issues"
+  },
+  "homepage": "https://github.com/rikvik2006/The-Vegetables-Farmer#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
+}
