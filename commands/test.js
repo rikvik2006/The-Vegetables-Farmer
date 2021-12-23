@@ -1,7 +1,7 @@
 module.exports = {
     name:"test",
     description:"Test command",
-    execute(message) {
+    execute(message, args) {
         message.channel.send("Test command!");
     }
 }
