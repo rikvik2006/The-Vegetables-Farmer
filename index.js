@@ -12,7 +12,7 @@ client.on ('ready', () => {
 //*  Richiedo al diperndenza fs */
 const fs = require('fs');
 
-//** Creo una collecrion */
+//** Creo una collection */
 client.commands = new Discord.Collection();
 
 //** Creo una collezione di comandi solo nella cartella /commands*/
