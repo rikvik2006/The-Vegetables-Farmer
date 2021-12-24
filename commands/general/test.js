@@ -1,9 +1,9 @@
 module.exports = {
-    name:"test",
+    name:"ping",
     description:"Test command",
-    aliases: ["test2"],
+    aliases: ["test"],
     onlyStaff: true,
     execute(message, args) {
-        message.channel.send("Test command!");
+        message.channel.send("Pong!");
     }
 }

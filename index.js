@@ -39,6 +39,10 @@ for (const folder of commandsFolder) {
 }
 
 
+
+
+
+
 //** Eventi */
 // Events
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
@@ -52,6 +56,10 @@ for (const file of events) {
     client.on(event.name, (...args) => event.execute(client, ...args));
 }
 
+
+
+
+
 //** Eseguo il comando */
 // I run the command
 client.on('messageCreate', message => {
@@ -64,12 +72,13 @@ client.on('messageCreate', message => {
 
     //** Controllo il nome del comando e i suoi alias */
     // I check the command name and its aliases
-    if (!client.commands.has(commandName) && !client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName)))return;
-
+    if (!client.commands.has(commandName) && !client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))){
+        return message.reply('Command not found!');
+    }
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     if (command.onlyStaff) {
-        if (!message.member.roles.cache.find(r => r.name === "Red Lettuce") || !message.member.roles.cache.find(r => r.name === "Avocado (MOD)")) {
+        if (!message.member.roles.cache.find(r => r.id === "923527745085005824") && !message.member.roles.cache.find(r => r.id === "923534959468249160")) {
             return message.channel.send(`You don't have the permission to use this command!`);
         }
     }
