@@ -4,10 +4,6 @@ require('dotenv').config()
 
 client.login(process.env.TOKEN);
 
-client.on ('ready', () => {
-    console.log('Bot is online!');
-});
-
 
 //*  Richiedo al diperndenza fs 
 // I require FS dependency 
@@ -40,6 +36,20 @@ for (const folder of commandsFolder) {
         // I add the command to the collection
         client.commands.set(command.name, command);
     }
+}
+
+
+//** Eventi */
+// Events
+const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+//** Per ogni file eseguo il require */
+// For each file, I execute the require
+for (const file of events) {
+    const event = require(`./events/${file}`);
+    //** Prendo tutti i parametri dell evento e li passo nell execute */
+    // I get all the parameters of the event and pass them in the execute
+    client.on(event.name, (...args) => event.execute(client, ...args));
 }
 
 //** Eseguo il comando */
@@ -79,3 +89,5 @@ client.on('messageCreate', message => {
         message.reply('there was an error trying to execute that command!');
     }
 });
+
+
