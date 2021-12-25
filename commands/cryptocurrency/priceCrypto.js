@@ -23,14 +23,13 @@ module.exports = {
             // Check if data exists
             if (!data[coin][vsCurrency]) throw Error();
 
+            const piriceMessge = `The current price of 1 ${coin} = ${data[coin][vsCurrency]} ${vsCurrency}`;
             var priceEmbed = new Discord.MessageEmbed()
-                .setColor ('#8D8D8D')
-                .setTitle ('Price')
-                .setDescription (`The current price of 1 ${coin} = ${data[coin][vsCurrency]} ${vsCurrency}`)
-                .timestamp()
-
-            return message.reply({embeds: [priceEmbed]}
-            ); //priceEmbed
+              .setColor ('#8D8D8D')
+              .setTitle ('Price')
+              .setDescription (piriceMessge)
+              .timestamp();
+            return message.reply({embeds: [priceEmbed]}); //priceEmbed
 
           } catch (err) {
             return message.reply({embeds: [parmsNotExist]}); //parmsNotExist
