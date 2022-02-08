@@ -31,7 +31,10 @@ module.exports = {
         const { clientId, guildId, token } = require('../config.json');
 
         const commands = [
-            new SlashCommandBuilder().setName('join').setDescription('Enter in the cave')
+            new SlashCommandBuilder().setName('join').setDescription('Enter in the cave'),
+            new SlashCommandBuilder().setName('leave').setDescription('Leave the cave'),
+            new SlashCommandBuilder().setName('help').setDescription('Help command'),
+            new SlashCommandBuilder().setName('website').setDescription('Get the website link'),
         ]
             .map(command => command.toJSON());
 
