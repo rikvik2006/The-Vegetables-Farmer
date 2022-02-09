@@ -9,6 +9,7 @@ client.login(process.env.TOKEN);
 // I require FS dependency 
 
 const fs = require('fs');
+const { CLIENT_RENEG_LIMIT } = require('tls');
 
 //** Creo una collection */
 // I create a collection
@@ -72,8 +73,8 @@ client.on('messageCreate', message => {
 
     //** Controllo il nome del comando e i suoi alias */
     // I check the command name and its aliases
-    if (!client.commands.has(commandName) && !client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))){
-        return message.reply('Command not found!');
+    if (!client.commands.has(commandName) && !client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))) {
+        return message.reply({ content: "Command not found", ephemeral: true });
     }
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
@@ -98,5 +99,4 @@ client.on('messageCreate', message => {
         message.reply('there was an error trying to execute that command!');
     }
 });
-
 

@@ -7,6 +7,8 @@ module.exports = {
 
 
         if (!interaction.isCommand()) return;
+                        //^^^^^^^
+
 
         const { commandName } = interaction;
 
@@ -29,7 +31,7 @@ module.exports = {
                 .setTitle('Website')
                 .setDescription('If we hed a website, it would be here')
 
-            ;
+                ;
         }
 
     }
