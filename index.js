@@ -66,6 +66,8 @@ for (const folder of eventsFolders) {
     }
 }
 
+
+
 //**Funzioni */
 //Funnctions
 const functionFiles = fs.readdirSync('./functions').filter(file => file.endsWith('.js'));
@@ -115,3 +117,23 @@ client.on('messageCreate', message => {
         message.reply('there was an error trying to execute that command!');
     }
 });
+
+
+client.on("ready", () => {
+    client.guilds.cache.forEach(guild => {
+        client.commands.forEach(command => {
+            guild.commands.create(command.data)
+        })
+    })
+})
+
+
+
+client.on("interactionCreate", interaction => {
+    if (!interaction.isCommand()) return
+
+    const command = client.commands.get(interaction.commandName)
+    if (!command) return
+
+    command.execute(interaction)
+})
