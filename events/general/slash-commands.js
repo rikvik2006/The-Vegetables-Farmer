@@ -12,9 +12,9 @@ module.exports = {
 
         const { commandName } = interaction;
 
-        if (commandName === "join") {
-            await interaction.reply("You have entered in the cave, Congratulation!");
-        } else if (commandName === "leave") {
+        if (commandName === "join") { 
+            await interaction.reply("You have entered in the cave, Congratulation!"); 
+        } else if (commandName === "leave") { 
             await interaction.reply("You have left the cave, Bye!");
         } else if (commandName === "help") {
             await interaction.reply({ embeds: [help_embed] });
